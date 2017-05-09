@@ -49,6 +49,12 @@ ko.extenders.collectionChange = (obsv, options) ->
   return obsv
 
 ###
+# Functional wrappers
+###
+ko.subscribable.fn.toObservableModel = (keys...) -> @extend(modelChange: keys)
+ko.subscribable.fn.toObservableCollection = -> @extend(collectionChange: true)
+
+###
 # Easy to use wrapped extensions
 ###
 ko.observableModel = (model, keys...) ->
