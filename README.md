@@ -6,10 +6,11 @@ that does pretty much everything this project does and more. The goal of this pr
 all your Backbone data it focuses solely on making sure events are propogated and reduce the amount of mapping needed.
 
 When one first encounters Knockout the first hurdle is to conceptualize what a ViewModel is in the MVVM pattern used. Since Knockout doesn't really focus 
-what the Models or the ViewModels look like it's even more the 'View' in the MV* than even React can claim since it doesn't push you along any particular 
-convention. This makes it very flexible and minimal but it also leads to a lot of confusion. How to represent state has been a struggle in Web Applications 
-since day one.nWhat generally happens is you sprint off wrapping everything in observables before even really thinking whether you should be. Then the problem 
-becomes: How can I best map all my data from the server. There are plugins for that or you can use one of many packages to integrate with a model framework. 
+what the Models or the ViewModels look like it's definitely the 'View' in the MV* since it doesn't push you along any particular convention. This makes 
+it very flexible and minimal but it also leads to a lot of confusion. How to represent state has been a struggle in Web Applications
+since day one. What 
+generally happens is you sprint off wrapping everything in observables before even really thinking whether you should be. Then the problem becomes: 
+How can I best map all my data from the server. There are plugins for that or you can use one of many packages to integrate with a model framework. 
 Ultimately the problem still ends up falling on the lose concept of what a ViewModel is. In practice people tend to write 2 types of ViewModels:
 
 * Application Logic View Models: these view models contain specific logic require to handle UI manipulation on your pages, sections, panels, controls, etc..
@@ -60,16 +61,16 @@ So to set up a View Model with Backout one would use methods like the following:
 
     this.first_name('Jack');
 
-    user.get('first_name'); // 'Jack'
+    user_model.get('first_name'); // 'Jack'
 
     this.list = ko.observableCollection(new Collection());
 
-    this.list().reset([user]);
+    this.list().reset([user_model]);
 
 
 From here you could bind to the DOM like:
 
-    <span data-bind="text: user.get('first_name')"></span>
+    <span data-bind="text: user().get('first_name')"></span>
 
     <input type="text" data-bind="value: first_name" />
 
