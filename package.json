@@ -3,7 +3,7 @@
   "description": "A minimal Backbone Model and Collection wrapper for KnockoutJS",
   "author": "Ryan Carniato",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "index.js",
   "scripts": {
     "prepublish": "coffee --compile --bare --no-header --output ./ src/"
